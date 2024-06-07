@@ -1,4 +1,26 @@
-import { getHaulers } from "./database.js";
+import { getHaulers, getTransports } from "./database.js";
+
+const allTransports = getTransports();
+
+document.addEventListener("click", (clickEvent) => {
+  const itemClicked = clickEvent.target;
+
+  if (itemClicked.dataset.type === "hauler") {
+    const currentHauler = itemClicked.dataset.id;
+
+    let currentTransportShip = "";
+
+    for (const transport of allTransports) {
+      if (parseInt(currentHauler) === transport.id) {
+        currentTransportShip = transport.name;
+      }
+    }
+
+    window.alert(
+      `This cargo hauler is being carried by ${currentTransportShip}.`
+    );
+  }
+});
 
 export const HaulerList = () => {
   const haulers = getHaulers();
@@ -6,7 +28,7 @@ export const HaulerList = () => {
   let haulerHTML = "<ul>";
 
   for (const hauler of haulers) {
-    haulerHTML += `<li data-type="hauler" data->${hauler.name}</li>`;
+    haulerHTML += `<li data-type="hauler" data-id=${hauler.id} >${hauler.name}</li>`;
   }
 
   haulerHTML += "</ul>";
