@@ -37,6 +37,38 @@ export const database = {
       weight: 300000,
     },
   ],
+  transports: [
+    {
+      id: 1,
+      name: "The Pier Pressure",
+      currentCargoCount: [],
+      targetDock: dock.id,
+    },
+    {
+      id: 2,
+      name: "The Ship Happens",
+      currentCargoCount: [],
+      targetDock: dock.id,
+    },
+    {
+      id: 3,
+      name: "The Bulk Hogan",
+      currentCargoCount: [],
+      targetDock: dock.id,
+    },
+    {
+      id: 4,
+      name: "The Deck-orator",
+      currentCargoCount: [],
+      targetDock: dock.id,
+    },
+    {
+      id: 5,
+      name: "The Sea-Section",
+      currentCargoCount: [],
+      targetDock: dock.id,
+    },
+  ],
 };
 
 export const getDocks = () => {
@@ -45,4 +77,8 @@ export const getDocks = () => {
 
 export const getHaulers = () => {
   return database.haulers.map((hauler) => ({ ...hauler }));
+};
+
+export const getTransports = () => {
+  return database.transports.map((transport) => ({ ...transport }));
 };
