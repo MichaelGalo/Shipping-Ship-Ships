@@ -22,10 +22,13 @@ document.addEventListener("click", (clickEvent) => {
 
 export const DockList = () => {
   const docks = getDocks();
+  const sortedDocks = docks.sort((a, b) =>
+    a.location.localeCompare(b.location)
+  );
 
   let docksHTML = "<ul>";
 
-  for (const dock of docks) {
+  for (const dock of sortedDocks) {
     docksHTML += `<li data-type="dock" data-id=${dock.id} data-location=${dock.location}>${dock.location}</li>`;
   }
 

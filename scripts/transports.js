@@ -22,10 +22,13 @@ document.addEventListener("click", (clickEvent) => {
 
 export const TransportsList = () => {
   const transports = getTransports();
+  const sortedTransports = transports.sort((a, b) =>
+    a.name.localeCompare(b.name)
+  );
 
   let transportHTML = "<ul>";
 
-  for (const transport of transports) {
+  for (const transport of sortedTransports) {
     transportHTML += `<li data-type="transport" data-id=${transport.id} data-cargoCount=${transport.currentCargoCount}>${transport.name}</li>`;
   }
 
