@@ -69,6 +69,20 @@ export const database = {
       targetDock: 5,
     },
   ],
+  // contracts: [
+  //   {
+  //     dockId: 3,
+  //     haulerId: 2
+  //   },
+  //   {
+  //     dockId: 1,
+  //     haulerId: 2
+  //   },
+  //   {
+  //     dockId: 1,
+  //     haulerId: 2
+  //   },
+  // ]
 };
 
 export const getDocks = () => {
