@@ -24,10 +24,11 @@ document.addEventListener("click", (clickEvent) => {
 
 export const HaulerList = () => {
   const haulers = getHaulers();
+  const sortedHaulers = haulers.sort((a, b) => a.name.localeCompare(b.name));
 
   let haulerHTML = "<ul>";
 
-  for (const hauler of haulers) {
+  for (const hauler of sortedHaulers) {
     haulerHTML += `<li data-type="hauler" data-id=${hauler.id} >${hauler.name}</li>`;
   }
 
